@@ -112,7 +112,7 @@
                 <div class="col-md-12 card">
                     <h2 class="text-center text-primary"><b>Section 1:The Basics</b> - DOM, Elements, Attributes, Properties, and Selection</h2>
                     <p class="text-muted"><b>Overview: </b>We will be going over what the DOM is to Javascript, as well as how to interact with elements and their 
-                        properties/attributes inside the DOM in both Javascript and jQuery.</p>
+                        properties/attributes inside the DOM in both Javascript and jQuery.  Today will be the most basic lesson by far.</p>
                 </div>
             </div>
             <br>
@@ -265,7 +265,8 @@
                         <h3>jQuery has less code!  Let's use it for all the things!</h3>
                         Indeed jQuery does have less code in this instance.  Using jQuery <pre class="inline-pre">.addClass()</pre> is less code to write, however it is still going
                         to execute the same JS code as if we did it manually.  Always keep this in mind when using jQuery, <b>just because you write less code, does not mean
-                        the browser executes less code</b>.
+                        the browser executes less code</b>.  You could very easily take our JS code, put it into a function, and now it is reusable and just as easy to call as
+                        it's jQuery counterpart.
                     </div>
                     <h4 class="text-primary">So do I use jQuery or not?</h4>
                     Well that really depends.  If you already have jQuery loaded into your project, this would be an instance of "why not?".  However, if you do not yet
@@ -308,6 +309,60 @@
             We could have simply done this, however it is not technically correct and will only work with jQuery:
             <p data-height="200" data-theme-id="dark" data-slug-hash="jazpzW" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="jazpzW" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/jazpzW/">jazpzW</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
             <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-primary">Selecting Dynamic Elements</h3>
+                    Something to note and keep in mind, is that you cannot select elements until they have been put into the DOM.  We will be going over this more in the next
+                    section when we start dealing with events, however please do always keep in mind that elements cannot be selected until they have been put into the DOM.
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-primary">Animations</h3>
+                    Javascript used to be the "go to" for animations on the web.  Since the rise of the modern browser and adoption of CSS3, there is no need for this anymore,
+                        CSS3 should be utilized for animations (see: <a href="https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp" target="_blank">keyframes</a>).
+                    That being said, if we make a CSS class to animate an element, we will still likely have to use Javascript or jQuery to add that class to the element.
+                    <br><br>
+                    However, there is going to be instances when you may need to use JS or jQuery to animate something.  This is something that jQuery comes built in with,
+                    however it is really not that difficult to implement in plain Javascript, and not a reason to include the entire jQuery library.  Let's take a look
+                    at a real world example; fading an element out.
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="text-primary">jQuery</h4>
+                    <p data-height="265" data-theme-id="dark" data-slug-hash="WXJQyb" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="WXJQyb" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/WXJQyb/">WXJQyb</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="text-primary">Javascript</h4>
+                    <p data-height="265" data-theme-id="dark" data-slug-hash="jaxbwO" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="jaxbwO" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/jaxbwO/">jaxbwO</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    This is an instance where we may want to use JS or jQuery to fade out then remove an element and set it to <pre class="inline-pre">display: none;</pre>.
+                    Even if we used CSS3 to fade then remove the element, we have no way to know when the element has finished fading.  jQuery, as well as our function, both
+                    provide a callback function that will execute when the animation is complete.
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-primary">Section 1: Wrapping Up</h3>
+                    So we learned some basic principles of jQuery and Javascript; how to select elements, make new elements, adjust properties of elements, and
+                    even a little animation.  Hopefully you learned something along the way, as next week we will get more complex as we dive into events, event listeners, 
+                    and input elements.  Also, if you need a reference to convert jQuery to pure JS, check out <a href="http://youmightnotneedjquery.com/" target="_blank">youmightnotneedjquery.com</a>
+                </div>
+            </div>
         </div>
     </section>
     <br>
