@@ -1,0 +1,20 @@
+.inline-pre {
+    display: inline !important;
+    padding: 3px !important;
+}
+pre {
+    color: #e91e63 !important;
+    background: #ecf0f1;
+    border-radius: 5px;
+}
+.pointer {
+    cursor: pointer;
+}
+
+/* Bootstrap and Bootswatch Overrides */
+.navbar {
+    padding: 0;
+}
+section {
+    padding-top: 2em;
+}

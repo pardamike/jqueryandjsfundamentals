@@ -10,78 +10,39 @@
 
     <title>jQuery and Javascript Fundamentals</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="css/flatly.min.css">
-    <style>
-        .card {
-            position: relative;
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            min-width: 0;
-            word-wrap: break-word;
-            background-clip: border-box;
-            border: 1px solid rgba(0,0,0,.125);
-            border-radius: .25rem;
-            padding: 15px;
-            margin-top: 15px;
-        }
-        .list-data {
-            display: inline-block;
-            font-size: 1.5em;
-        }
-        .list-btn {
-            float: right;
-        }
-        .inline-pre {
-            display: inline !important;
-            padding: 3px !important;
-        }
-        pre {
-            color: #e91e63 !important;
-        }
-        .example {
-            font-size: 1.3em;
-            font-weight: 800;
-            color: #ccc;
-        }
-        .ex-title {
-            color: #333;
-            font-weight: 500;
-            font-size: 1em;
-        }
-        .teal {
-            background-color: teal;
-        }
-        .orange {
-            background-color: orangered;
-        }
-        .green {
-            background-color: green;
-        }
-        .blue {
-            background-color: blue;
-        }
-        .purple {
-            background-color: purple;
-        }
-        .red {
-            background-color: red;
-        }
-        .yellow {
-            background-color: yellow;
-        }
-        .grey {
-            background-color: lightgray;
-        }
-    </style>
-
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.4/gist-embed.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.4/gist-embed.min.js"></script>
+    <script src="https://use.fontawesome.com/b430732d7c.js"></script>
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sections
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="sections/section1.html">Section 1: DOM, Elements, Basic Selection</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="sections/section2.html">Section 2: Advanced Selection, Events, Listeners, Input</a>
+                        <div class="dropdown-divider"></div>
+                        <span class="dropdown-item">More stuff coming!</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <section>
         <div class="container">
             <div class="row">
@@ -105,275 +66,66 @@
             </div>
         </div>
     </section>
-    <br><hr><br>
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-md-12 card">
-                    <h2 class="text-center text-primary"><b>Section 1:The Basics</b> - DOM, Elements, Attributes, Properties, and Selection</h2>
-                    <p class="text-muted"><b>Overview: </b>We will be going over what the DOM is to Javascript, as well as how to interact with elements and their 
-                        properties/attributes inside the DOM in both Javascript and jQuery.  Today will be the most basic lesson by far.</p>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="text-primary">What is the DOM?</h3>
-                    DOM stands for Document Object Model, it is created by the browser, and is a tree of objects.  It is always important to keep this in mind
-                    when working with JS; that all elements are essentially just objects that live in the DOM.
-                    <br><br>
-                    Just like in any other programming, these "objects" have properties and attributes (such as "value" and "disabled"), and can be changed and manipulated.
-                    <br><br>
-                    Element attributes and properties are essentially the same thing for our purposes, and we will refer to them as properties, since our JS
-                    will be using the properties.
-                </div>
-                <div class="col-md-6">
-                    <img class="img-responsive" src="http://res.cloudinary.com/haxcomm/image/upload/v1511301192/domtree_zyjxkm.gif" alt="W3 Schools DOM Chart">
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="text-primary">Initial document</h3>
-                    Not much to say here other than we have a blank HTML document with jQuery loaded into it.  This is where we will begin:
-                    <code data-gist-id="5f9bcfd5ecd74941e4b8204dd91c3d92"></code>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="text-primary">Select an element from the DOM</h3>
-                    There is a number of ways to select an element with Javascript and jQuery (which I am sure you are aware of).  To select just a single element
-                    it is recommended you select by the elements ID, since ID's are (supposed to be) unique on the page.  When selecting by something else,
-                    such as a CSS class, you will get back and array of elements that all have that CSS class.  These are all valid ways to select elements:
-                    <br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h4 class="text-primary">jQuery</h4>
-                            <ul class="list-group">
-                                <li class="list-group-item">By ID - <pre class="inline-pre">$('#theId')</pre></li>
-                                <li class="list-group-item">By class - <pre class="inline-pre">$('.theClass')</pre></li>
-                                <li class="list-group-item">By name - <pre class="inline-pre">$('[name="theName"]')</pre></li>
-                            </ul>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h4 class="card-title">Section 1</h4>
+                            <p class="card-text text-left">DOM, Elements, Attributes, Properties, and Selection</p>
+                            <a href="sections/section1.html" class="btn btn-success">Let's Go!</a>
                         </div>
-                        <div class="col-md-6">
-                            <h4 class="text-primary">Javascript</h4>
-                            <ul class="list-group">
-                                <li class="list-group-item">By ID - <pre class="inline-pre">document.getElementById('theId')</pre></li>
-                                <li class="list-group-item">By class - <pre class="inline-pre">document.getElementsByClassName('theClass')</pre></li>
-                                <li class="list-group-item">By name - <pre class="inline-pre">document.getElementsByName("theName");</pre></li>
-                            </ul>
+                    </div>   
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h4 class="card-title">Section 2</h4>
+                            <p class="card-text text-left">Advanced Selection, Events, Listeners, and Inputs</p>
+                            <a href="sections/section2.html" class="btn btn-success">Let's Go!</a>
                         </div>
-                    </div>
-                    <br>
-                    <div class="alert alert-warning">
-                        <h4 class="text-warning">jQuery Note:</h4>
-                        It is important to note when using jQuery, you should select an element by being as specific as you can.  For example to select the element
-                        <pre class="inline-pre">&lt;button name="someButton"&gt;Click Me!&lt;/button&gt;</pre> you should use 
-                        <pre class="inline-pre">$('button[name="someButton"]')</pre>, note we are telling jQuery we are looking specifically for a button who's name is
-                        'someButton' and not just anything with the name 'someButton'.
-                    </div>
-                    <div class="alert alert-danger">
-                        <h4>JS Pitfall</h4>
-                        Selecting by class, name, or any other property will give you an array of elements that match.  
-                        Select in this manner only when you need to select multiple elements.
-                    </div>
+                    </div>  
                 </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="text-primary">Elements as Objects?</h3>
-                    To you, the code <pre class="inline-pre">&lt;button id="someButton"&gt;Click Me!&lt;/button&gt;</pre> looks like just plain HTML.
-                    However Javascript sees this HTML element quite differently.  Let's select this element with JS and also with jQuery and see what we get:
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4 class="text-primary">jQuery</h4>
-                    <ul class="list-group">
-                        <li class="list-group-item">Select and log to the console using:<br> <pre class="inline-pre">console.log($('#someButton'));</pre></li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <h4 class="text-primary">Javascript</h4>
-                    <ul class="list-group">
-                        <li class="list-group-item">Select and log to the console using:<br> <pre class="inline-pre">console.log(document.getElementById('someButton'));</pre></li>
-                    </ul>
-                </div>
-            </div>
-            <br>
-            <code data-gist-id="a0a9993b0e5d35f34abac2a601542301"></code>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h4 class="text-primary">Wait, my console.log is different for both!?</h4>
-                    Not really.  jQuery puts a wrapper around the element to expose all of its properties to you.  
-                    You can see the properties of the object in regular JS by using <pre class="inline-pre">console.dir()</pre> rather than <pre class="inline-pre">console.log()</pre>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="text-primary">Ok, so what are these?</h3>
-                    Upon console.log (or dir) of the element, you are going to see a pretty massive list.  These are of course, your elements properties!  Some will be familiar, some will not.
-                    It is most important to note that the element behaves according to its properties.  If you want to update an element, simply update
-                    its properties.
-                    <br><br>Take a moment and look through the result of <pre class="inline-pre">console.log()</pre> and identify some properties you might know already.
-                    <br>
-                    <br>
-                    <h4 class="text-primary">Now let's update some properties...</h4>
-                    We need to give this button a little more style, let's make the text blue by modifying the 'color' property:
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h4 class="text-primary">jQuery</h4>
-                            <p data-height="97" data-theme-id="dark" data-slug-hash="ZaJgpE" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="ZaJgpE" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/ZaJgpE/">ZaJgpE</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-                            <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h4 class="card-title">Section 3</h4>
+                            <p class="card-text">TODO</p>
+                            <a href="#" class="btn btn-secondary disabled">Let's Go!</a>
                         </div>
-                        <div class="col-md-6">
-                            <h4 class="text-primary">Javascript</h4>
-                            <p data-height="97" data-theme-id="dark" data-slug-hash="WXzyzY" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="WXzyzY" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/WXzyzY/">WXzyzY</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-                            <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                    </div>   
+                </div>    
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h4 class="card-title">Section 4</h4>
+                            <p class="card-text">TODO</p>
+                            <a href="#" class="btn btn-secondary disabled">Let's Go!</a>
                         </div>
-                    </div>
-                    <br>
-                    Ok so that was pretty easy... but styling with Javascript is not efficient, we need to add a CSS class to this button to really make it nice.
-                    Let's say I add a CSS class called "fancy-button" and want to apply it to my button with JS.  My new HTML document will look like:
-                    <br>
-                    <br>
-                    <code data-gist-id="16b07e1d8c3bc76d68a546c78eec41ce"></code>
-                    <br>
-                    And my JS will look like this:
-                    <br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h4 class="text-primary">jQuery</h4>
-                            <p data-height="200" data-theme-id="dark" data-slug-hash="VrXdVz" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="VrXdVz" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/VrXdVz/">VrXdVz</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-                            <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                    </div>  
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h4 class="card-title">Section 5</h4>
+                            <p class="card-text">TODO</p>
+                            <a href="#" class="btn btn-secondary disabled">Let's Go!</a>
                         </div>
-                        <div class="col-md-6">
-                            <h4 class="text-primary">Javascript</h4>
-                            <p data-height="200" data-theme-id="dark" data-slug-hash="QOmxzo" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="QOmxzo" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/QOmxzo/">QOmxzo</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-                            <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="alert alert-warning">
-                        <h3>jQuery has less code!  Let's use it for all the things!</h3>
-                        Indeed jQuery does have less code in this instance.  Using jQuery <pre class="inline-pre">.addClass()</pre> is less code to write, however it is still going
-                        to execute the same JS code as if we did it manually.  Always keep this in mind when using jQuery, <b>just because you write less code, does not mean
-                        the browser executes less code</b>.  You could very easily take our JS code, put it into a function, and now it is reusable and just as easy to call as
-                        it's jQuery counterpart.
-                    </div>
-                    <h4 class="text-primary">So do I use jQuery or not?</h4>
-                    Well that really depends.  If you already have jQuery loaded into your project, this would be an instance of "why not?".  However, if you do not yet
-                    have jQuery, the <pre class="inline-pre">.addClass()</pre> function would not really be grounds to import the jQuery library.  Even if you do have jQuery
-                    loaded into your project, it is perfectly acceptable to use plain JS, and in fact much easier on the browser, so I would encourage using regular old JS
-                    whenever it is "almost as easy" as using jQuery to save your client some processing power.
-                    <br>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="text-primary">Adding Elements</h3>
-                    There is both a jQuery way, and a pure Javascript way to create a new element and place it into the DOM.  Let's say I want to create <pre class="inline-pre">span</pre>
-                    that says "i am the span".  Let's say I want to add the <pre class="inline-pre">span</pre> element to a <pre class="inline-pre">div</pre> that is already on the page:
-                    <code data-gist-id="506e0e7b56ed3fb1cce794a9d425ab10"></code>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4 class="text-primary">jQuery</h4>
-                    <p data-height="150" data-theme-id="dark" data-slug-hash="pdLZPj" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="pdLZPj" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/pdLZPj/">pdLZPj</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-                </div>
-                <div class="col-md-6">
-                    <h4 class="text-primary">Javascript</h4>
-                    <p data-height="150" data-theme-id="dark" data-slug-hash="bYvjrX" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="bYvjrX" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/bYvjrX/">bYvjrX</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-                </div>
-            </div>
-            <br>
-            <h4 class="text-primary">A few things to notice...</h4>
-            One major takeaway is that notice when we are creating elements, we are able to adjust their properties right there.  In jQuery, you simply pass and object with
-            key: value pairs of property: value for the element.  In Javascript, you simply create the new HTML element, then adjust its properties accordingly.
-            <br>
-            <br>
-            The other thing to note is that we are doing this "by the book" and not simple typing out the HTML element as a string (as is often the case in many applications).
-            We could have simply done this, however it is not technically correct and will only work with jQuery:
-            <p data-height="200" data-theme-id="dark" data-slug-hash="jazpzW" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="jazpzW" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/jazpzW/">jazpzW</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-            <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-            <br>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="text-primary">Selecting Dynamic Elements</h3>
-                    Something to note and keep in mind, is that you cannot select elements until they have been put into the DOM.  We will be going over this more in the next
-                    section when we start dealing with events, however please do always keep in mind that elements cannot be selected until they have been put into the DOM.
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="text-primary">Animations</h3>
-                    Javascript used to be the "go to" for animations on the web.  Since the rise of the modern browser and adoption of CSS3, there is no need for this anymore,
-                        CSS3 should be utilized for animations (see: <a href="https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp" target="_blank">keyframes</a>).
-                    That being said, if we make a CSS class to animate an element, we will still likely have to use Javascript or jQuery to add that class to the element.
-                    <br><br>
-                    However, there is going to be instances when you may need to use JS or jQuery to animate something.  This is something that jQuery comes built in with,
-                    however it is really not that difficult to implement in plain Javascript, and not a reason to include the entire jQuery library.  Let's take a look
-                    at a real world example; fading an element out.
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4 class="text-primary">jQuery</h4>
-                    <p data-height="265" data-theme-id="dark" data-slug-hash="WXJQyb" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="WXJQyb" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/WXJQyb/">WXJQyb</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-                </div>
-                <div class="col-md-6">
-                    <h4 class="text-primary">Javascript</h4>
-                    <p data-height="265" data-theme-id="dark" data-slug-hash="jaxbwO" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="jaxbwO" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/jaxbwO/">jaxbwO</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    This is an instance where we may want to use JS or jQuery to fade out then remove an element and set it to <pre class="inline-pre">display: none;</pre>.
-                    Even if we used CSS3 to fade then remove the element, we have no way to know when the element has finished fading.  jQuery, as well as our function, both
-                    provide a callback function that will execute when the animation is complete.
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="text-primary">Section 1: Wrapping Up</h3>
-                    So we learned some basic principles of jQuery and Javascript; how to select elements, make new elements, adjust properties of elements, and
-                    even a little animation.  Hopefully you learned something along the way, as next week we will get more complex as we dive into events, event listeners, 
-                    and input elements.  Also, if you need a reference to convert jQuery to pure JS, check out <a href="http://youmightnotneedjquery.com/" target="_blank">youmightnotneedjquery.com</a>
-                </div>
+                    </div>   
+                </div> 
             </div>
         </div>
     </section>
-    <br>
-    <br>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
 <script>
     var md = new Remarkable('full');
 </script>
-
 </body>
 </html>
 
