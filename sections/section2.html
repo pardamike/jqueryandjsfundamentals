@@ -66,8 +66,58 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="text-primary">How can I select...?</h3>
-                    Basic selection in both Javascript and jQuery is pretty strightforward as we saw in the last section.
-                    
+                    Basic DOM selection in both Javascript and jQuery is pretty strightforward as we saw in the last section.
+                    However, we often find ourselves with much harder items to select, and sometimes
+                    we cannot change the existing HTML code to give an element a unique ID to select it by.
+                    <br><br>
+                    Let's take a look at some difficult selections...
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">The plugin generated grid</h4>
+                    We have all worked with plugin generated grids at some point.  If you are stuck with the wrong plugin, it can
+                    be very difficult to do any DOM manipulations and selections with a grid.  Enterprise UI toolkits that are old
+                    are pretty notorious for this.
+                    <br><br>
+                    So let's pretend we cannot touch the HTML code for this mini bingo grid, and we need to select and blackout
+                    the "free" space in the middle (B3).
+                </div>
+                <div class="col">
+                    <table id="bingoTable">
+                        <tr>
+                            <th>B</th>
+                            <th>I</th>
+                            <th>N</th>
+                            <th>G</th>
+                            <th>O</th>
+                        </tr>
+                        <tr>
+                            <td>A1</td>
+                            <td>A2</td>
+                            <td>A3</td>
+                            <td>A4</td>
+                            <td>A5</td>
+                        </tr>
+                        <tr>
+                            <td>B1</td>
+                            <td>B2</td>
+                            <td>B3</td>
+                            <td>B4</td>
+                            <td>B5</td>
+                        </tr>
+                        <tr>
+                            <td>C1</td>
+                            <td>C2</td>
+                            <td>C3</td>
+                            <td>C4</td>
+                            <td>C5</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
