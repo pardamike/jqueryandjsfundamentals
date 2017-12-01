@@ -390,7 +390,7 @@
                 <div class="col">
                     <h4 class="text-primary">jQuery</h4>
                     jQuery makes it nice and easy to account for dynamic elements and attaching events listeners to them.  jQuery will
-                    allot us to attach events to the <pre class="inline-pre">document</pre> and pass in the selector of the element
+                    allow us to attach events to the <pre class="inline-pre">document</pre> and pass in the selector of the element
                     we want the event listener to be put on.  Since the document is the DOM, it is always there, so we are gaurenteed
                     to have our event attached somewhere.  So if we just pass in the selector of the element we want to add the event 
                     listener to, jQuery will create the event listener on the document, but will only fire the event if the event was 
@@ -398,16 +398,66 @@
                     <br><br>
                     The other choice we have is to add the events to the elements as we insert them into the DOM.  Let's take a look at both choices:
                     <br><br>
-                    <p data-height="353" data-theme-id="0" data-slug-hash="VrqQeM" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="VrqQeM" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/VrqQeM/">VrqQeM</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <p data-height="350" data-theme-id="0" data-slug-hash="VrqQeM" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="VrqQeM" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/VrqQeM/">VrqQeM</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
                     <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
                 </div>
                 <div class="col">
                     <h4 class="text-primary">Javascript</h4>
-                    Javascript is not as forgiving as jQuery.  The only wait to attach events to elements in Javascript that will actually fire,
+                    Javascript is not as forgiving as jQuery, and there is pretty much one way to add event listeners to elements.  
+                    The only wait to attach events to elements in Javascript (that will actually fire),
                     is to wait for them to be present in the DOM, or when they are put into the DOM, add the event listener then.
                     <br><br>
-                    <p data-height="420" data-theme-id="0" data-slug-hash="LOMeab" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="LOMeab" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/LOMeab/">LOMeab</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    If you try to attach an event to an element not in the DOM yet, nothing will happen.  You will not get any kind of
+                    error message or warning, and you may be left wondering why your event is not firing.
+                    <br><br>
+                    <p data-height="350" data-theme-id="0" data-slug-hash="yPGKPz" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="yPGKPz" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/yPGKPz/">yPGKPz</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
                     <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-primary">Waiting for the DOM to be ready</h3>
+                    How to we make sure we do not execute any of our Javascript until the imitial DOM is loaded?  Your answer might
+                    be that you use <pre class="inline-pre">document.ready</pre> and that answer is not wrong.  That is one way
+                    to make sure you do not run any JS before the document is loaded.  But is it necessary?
+                    <br><br>
+                    The answer to that depends on the organization of your application somewhat.  It is recommended and
+                    advised that you not include your Javascript in a page until right before the closing body tag.  Why?
+                    Since the browser loads the HTML from bottom to top, putting your JS at the bottom of the body, ensures
+                    that all the HTML has been loaded before we start loading any JS.
+                    <br><br>
+                    Once agian, do NOT load your Javascript or jQuery in the <pre class="inline-pre">&lt;head&gt;</pre> tag,
+                    that is an old standard that is not valid anymore.  Including your scripts in the <pre class="inline-pre">&lt;head&gt;</pre>
+                    only ensures that you will need to use some sort of <pre class="inline-pre">document ready</pre>, since your scripts
+                    will load well before any of your HTML.  That being said, you may find yourself working on an application that
+                    includes the scripts in the <pre class="inline-pre">&lt;head&gt;</pre> and there is nothing you can do to change
+                    it.  Not a problem, let's look at a few ways to defer executing your JS until the HTML document is ready.
+                    <br><br>
+                    <code data-gist-id="bdb3cd9e0a5f86fcf8da3d9af03d540d"></code>
+                    <br><br>
+                    Regardless of which method you use, you do need to try and keep only 1 document ready type function
+                    per page.  This is more of code standards and best practices than anything, as you can have 100 document
+                    ready function in your code and it will work, however this will become a nightmare to update later, so
+                    keep 1 document ready function per page, and anything that must execute as soon as the DOM is loaded should
+                    live there and only there.
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-primary">Input</h3>
+                    The last thing we will cover in this section is input fields.  This is a pretty standard thing that we all most
+                    likely know how to do, as it is the bread and butter of utilizing Javascript and jQuery in any application
+                    that does any kind of CRUD.
                 </div>
             </div>
         </div>
