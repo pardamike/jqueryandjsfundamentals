@@ -67,10 +67,10 @@
                 <div class="col-md-12">
                     <h3 class="text-primary">How can I select...?</h3>
                     Basic DOM selection in both Javascript and jQuery is pretty strightforward as we saw in the last section.
-                    However, we often find ourselves with much harder items to select, and sometimes
+                    However, we may find ourselves with much harder items to select, and in rare cases,
                     we cannot change the existing HTML code to give an element a unique ID to select it by.
                     <br><br>
-                    Let's take a look at some difficult selections...
+                    Let's take a look at a difficult selections...
                 </div>
             </div>
         </div>
@@ -81,11 +81,10 @@
                 <div class="col">
                     <h4 class="text-primary">The plugin generated grid</h4>
                     We have all worked with plugin generated grids at some point.  If you are stuck with the wrong plugin, it can
-                    be very difficult to do any DOM manipulations and selections with a grid.  Enterprise UI toolkits that are old
-                    are pretty notorious for this.
+                    be very difficult to do any DOM manipulations and selections with a grid.
                     <br><br>
                     So let's pretend we cannot touch the HTML code for this mini bingo grid, and we need to select and blackout
-                    the "free" space in the middle (B3).
+                    the "free" space in the middle, using only Javascript or jQuery.
                 </div>
                 <div class="col">
                     <table id="bingoTable">
@@ -106,7 +105,7 @@
                         <tr>
                             <td>B1</td>
                             <td>B2</td>
-                            <td>B3</td>
+                            <td>Free!</td>
                             <td>B4</td>
                             <td>B5</td>
                         </tr>
@@ -122,7 +121,297 @@
             </div>
         </div>
     </section>
-
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">jQuery</h4>
+                    <p data-height="212" data-theme-id="0" data-slug-hash="eebWXW" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="eebWXW" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/eebWXW/">eebWXW</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+                <div class="col">
+                    <h4 class="text-primary">Javascript</h4>
+                    <p data-height="212" data-theme-id="0" data-slug-hash="EbdLzm" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="EbdLzm" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/EbdLzm/">EbdLzm</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-primary">Is selecting this specifically a good idea?</h3>
+                    Absolutely not!  If you find yourself needing to select things using children, parents, indexes, etc,
+                    then you should probably take a look at why.  That being said, there is times when you have no choice,
+                    but <b>techniques like this should really be avoided because if the HTML changes, the code will break!</b>
+                    <br><br>
+                    For our Bingo example we could also get creative and calculate the center (by counting the rows, and columns, 
+                    then find what the index of the middle <pre class="inline-pre">td</pre> would be, and go from there), but 
+                    this still would leave us with issues when trying to select and black out other squares.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-primary">jQuery to Javascript DOM Traversal Methods</h3>
+                    jQuery's strong point (and also a pitfall as we saw above) is its ability to traverse the DOM with its 
+                    various functions.  Here is some examples of the more common DOM traversal and selection methods and their
+                    Javascript equivalent:
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">jQuery</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <pre class="inline-pre">.find()</pre>
+                        </li>
+                        <li class="list-group-item">
+                            <pre class="inline-pre">$('[data-id="someId"]')</pre>
+                        </li>
+                        <li class="list-group-item">
+                            <pre class="inline-pre">$('div').not('.dontSelect');</pre>
+                        </li>
+                        <li class="list-group-item">
+                            <pre class="inline-pre">$('#parent').children();</pre>
+                        </li>
+                        <li class="list-group-item">
+                            <pre class="inline-pre">$('#child').parent();</pre>
+                        </li>
+                        <li class="list-group-item">
+                            <pre class="inline-pre">$('#element').next();</pre>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4 class="text-primary">Javascript</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <pre class="inline-pre">document.querySelectorAll()</pre>
+                        </li>
+                        <li class="list-group-item">
+                            <pre class="inline-pre">document.querySelectorAll('[data-id="someId"]');</pre>
+                        </li>
+                        <li class="list-group-item">
+                            <pre class="inline-pre">document.querySelectorAll('div:not(.dontSelect)');</pre>
+                        </li>
+                        <li class="list-group-item">
+                            <pre class="inline-pre">document.getElementById('parent').children;</pre>
+                        </li>
+                        <li class="list-group-item">
+                            <pre class="inline-pre">document.getElementById('child').parentNode;</pre>
+                        </li>
+                        <li class="list-group-item">
+                            <pre class="inline-pre">document.getElementById('element').nextElementSibling;</pre>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-primary">Can you replace jQuery selection with JS <pre class="inline-pre">querySelectorAll</pre>?</h3>
+                    You actually almost can, although it's not quite as flexible as jQuery and you will not be able to directly call jQuery
+                    functions on those elements (remember jQuery provides a wrapper over each element to interact with its API).
+                    <pre class="inline-pre">querySelectorAll</pre> returns an array of matching results, which is something to
+                    keep in mind when dealing with it.  Simply add a function called <pre class="inline-pre">$</pre>
+                    to the <pre class="inline-pre">window</pre> and you can make a bad version of jQuery in a few lines of code,
+                    which actually is not too bad for simple selections:
+                    <br><br>
+                    <p data-height="325" data-theme-id="0" data-slug-hash="bYOrGr" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="bYOrGr" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/bYOrGr/">bYOrGr</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-primary">Events and Event Listeners</h3>
+                    Events and event listeners are really one of the core functions of Javascript, and one of the primary reasons we
+                    use it.  The first step in anything to do with events, is to attach an event listener.  There is 2 ways to do this
+                    in jQuery, and 2 ways in Javascript, we all probably know these, but here they are anwyay:
+                    <br><br>
+                    <code data-gist-id="f6cf94697702274fb2933e9a34cbf60e"></code>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Exploring the Event Object</h4>
+                    Events are, like most things in Javascript, objects.  When an event is triggered by some kind of action (click, touch,
+                    mouseover, etc), if the element that the event occured on has an event listener, the listener will execute what
+                    is referred to as the event handler.  This is really just the function that you define when attaching your event
+                    listener.  There is a ton of properties to the Event object, we will only go over the most popular ones.
+                    <br><br>
+                    I should also note that there is different Event objects, depending on what triggered the event (keyboard, mouse, 
+                    etc) depends on what type of event our listener will recieve (KeyboardEvent, MouseEvent, etc).  These events are
+                    most the same, with a few properties added or removed.  For a full reference on the types of Events, please
+                    see the <a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank">MDN Web Docs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <pre class="inline-pre">keyCode</pre> is an integer which represents the key pressed 
+                            (EX: 13 === 'Enter' key) <b>NOTE:</b> This property only comes with KeyboardEvents
+                        </li>
+                        <li class="list-group-item">
+                            <pre class="inline-pre">target</pre> This property tells us the element that the event was targeting 
+                            (EX: handling a click event for a button, the button itself will be the target)
+                        </li>
+                        <li class="list-group-item">
+                            <pre class="inline-pre">type</pre> This property is the actual event type (NOT the event object type, 
+                            but the type of event, such as <pre class="inline-pre">keydown</pre> or <pre class="inline-pre">click</pre>).
+                        </li>
+                        <li class="list-group-item">
+                            <pre class="inline-pre">defaultPrevented</pre> This lets us know if the default browser behavior for this type
+                            of event has been stopped (more on this below).
+                        </li>
+                        <li class="list-group-item">
+                            <pre class="inline-pre">cancelBubble</pre> This property lets us know if the event is going to bubble up or not
+                            to any parents (more on this below)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">More on <pre class="inline-pre">event.preventDefault()</pre> and <pre class="inline-pre">event.stopPropagation()</pre> </h4>
+                    The 2 properties in the Event object, <pre class="inline-pre">defaultPrevented</pre> and <pre class="inline-pre">cancelBubble</pre>
+                    can be changed with these functions to stop events from acting in how the browser would normally let them happen.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">event.preventDefault()</h4>
+                    This will do pretty much what it sounds like, it will prevent the default behavior of the browser from
+                    happening, and it is generally used to help stop form submissions.  If you have a <pre class="inline-pre">&lt;form&gt;</pre>
+                    with a <pre class="inline-pre">&lt;button type="submit"&gt;</pre>, since the type of the button is "submit", the browser
+                    will attempt to submit the form.  <b>NOTE</b>: if you have a button inside of a form, <em>unless it is specifically 
+                    type="button", the browser will attempt to submit the form</em>.
+                    <br><br>
+                    <p data-height="160" data-theme-id="0" data-slug-hash="rYoGNV" data-default-tab="html,result" data-user="mikeparda" data-embed-version="2" data-pen-title="rYoGNV" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/rYoGNV/">rYoGNV</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+                <div class="col">
+                    <h4 class="text-primary">event.stopPropagation()</h4>
+                    This is a bit more obscure and not used nearly as much.  <pre class="inline-pre">stopPropagation</pre> will stop
+                    the event from bubbling up.  Wait... what?  An example would be this scenerio: you have 2 elements, both with click
+                    events, but one is nested inside the other.  If you click on the inner element, the event will bubble up to the parent
+                    element, and trigger its event handler as well.  Let's take a look at an example:
+                    <br><br>
+                    <p data-height="160" data-theme-id="0" data-slug-hash="wPRPLd" data-default-tab="html,result" data-user="mikeparda" data-embed-version="2" data-pen-title="wPRPLd" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/wPRPLd/">wPRPLd</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Removing Events</h4>
+                    There may be times when you want to remove an event listener from an element, for example maybe you only want
+                    a user to be able to click something once, fire and event, and then thats it, next time they click the
+                    element, you want nothing to happen.  Removing events is just as easy as adding them.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">jQuery</h4>
+                    With jQuery, you can actually remove ALL the events on an element, or you can specify the event listener to remove by
+                    passing in the event handler function for the listener to just remove 1 at a time.
+                    <br><br>
+                    <p data-height="420" data-theme-id="0" data-slug-hash="pdqpaq" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="pdqpaq" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/pdqpaq/">pdqpaq</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+                <div class="col">
+                    <h4 class="text-primary">Javascript</h4>
+                    Javascript requires you to specify the event listener to remove by passing in the event handler function name.  Unlike
+                    jQuery you cannot leave that empty and just remove all events of a certain type.
+                    <br><br>
+                    <p data-height="420" data-theme-id="0" data-slug-hash="LOMeab" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="LOMeab" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/LOMeab/">LOMeab</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-primary">Dynamic Elements and Events</h3>
+                    A very common use of Javascript/jQuery is to use it to perform AJAX calls to get data, then build HTML elements
+                    based on that data.  When we are dynamically loading and creating elements, we must properly attach events
+                    to those elements.  You cannot attach events to elements that are not in the DOM yet, so if your code that
+                    attaches the event listener fires before the element is in the DOM, then element never gets the event listener.
+                    To avoid this issue, we have a few options:
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">jQuery</h4>
+                    jQuery makes it nice and easy to account for dynamic elements and attaching events listeners to them.  jQuery will
+                    allot us to attach events to the <pre class="inline-pre">document</pre> and pass in the selector of the element
+                    we want the event listener to be put on.  Since the document is the DOM, it is always there, so we are gaurenteed
+                    to have our event attached somewhere.  So if we just pass in the selector of the element we want to add the event 
+                    listener to, jQuery will create the event listener on the document, but will only fire the event if the event was 
+                    triggerd by the selector.
+                    <br><br>
+                    The other choice we have is to add the events to the elements as we insert them into the DOM.  Let's take a look at both choices:
+                    <br><br>
+                    <p data-height="353" data-theme-id="0" data-slug-hash="VrqQeM" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="VrqQeM" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/VrqQeM/">VrqQeM</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+                <div class="col">
+                    <h4 class="text-primary">Javascript</h4>
+                    Javascript is not as forgiving as jQuery.  The only wait to attach events to elements in Javascript that will actually fire,
+                    is to wait for them to be present in the DOM, or when they are put into the DOM, add the event listener then.
+                    <br><br>
+                    <p data-height="420" data-theme-id="0" data-slug-hash="LOMeab" data-default-tab="js,result" data-user="mikeparda" data-embed-version="2" data-pen-title="LOMeab" class="codepen">See the Pen <a href="https://codepen.io/mikeparda/pen/LOMeab/">LOMeab</a> by Mike Parda (<a href="https://codepen.io/mikeparda">@mikeparda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- *********** END CONTENT *********** -->
 
