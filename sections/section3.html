@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="jQuery and Javascript Fundamentals">
+    <meta name="author" content="Mike Parda">
+
+    <title>jQuery and Javascript Fundamentals</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/flatly.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.4/gist-embed.min.js"></script>
+    <script src="https://use.fontawesome.com/b430732d7c.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sections
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="section1.html">Section 1: DOM, Elements, Basic Selection</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="section2.html">Section 2: Advanced Selection, Events, Listeners, Input</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="section3.html">Section 3: Functions, Objects, Shorthard and Async</a>
+                        <div class="dropdown-divider"></div>
+                        <span class="dropdown-item">More stuff coming!</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- *********** CONTENT *********** -->
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 card">
+                    <div class="card-body">
+                        <h2 class="text-center text-primary"><b>Section 3: </b> Functions, Objects, Shorthard Shortcuts and Async-ing Better</h2>
+                        <p class="text-muted"><b>Overview: </b>Today we are going to go over a variety of things, much of it deals with the inner workings
+                        of Javascript itself.  We will take a look at functions, objects and inheritance, some shorthand shortcuts we can use, as well as how to use
+                        jQuery AJAX better.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-primary">Functions as fist class citizens!</h3>
+                    Maybe you have head this before about Javascript, or maybe not.  Either way, this is a phrase people use to describe functions in Javascript.
+                    Why?  And what does it mean?
+                    <br><br>
+                    The term "first class citizen" means <em><b>an entity which supports all the operations generally available to other entities</b></em>.  How this can apply
+                    to Javascript is comparing the operations and things you can do with a function, versus with other entities such as integers, strings, booleans, etc?  So if
+                    this rule is right, we can treat functions as if they were a data type's.  This means we should be able to pass them as arguements, return them from functions,
+                    assign them to variables, etc.  Let's try some of these out then.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">We can assign them:</h4>
+                    <p data-height="236" data-theme-id="0" data-slug-hash="RjzQvR" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="functions as first class - assignable" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/RjzQvR/">functions as first class - assignable</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">We can return them:</h4>
+                    <p data-height="383" data-theme-id="0" data-slug-hash="GObBBQ" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="functions as fist class - returnable" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/GObBBQ/">functions as fist class - returnable</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">We can pass them:</h4>
+                    <p data-height="314" data-theme-id="0" data-slug-hash="Kyjopx" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="functions as first class - passable" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/Kyjopx/">functions as first class - passable</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">They can be assigned as properties:</h4>
+                    <p data-height="290" data-theme-id="0" data-slug-hash="ZadxOZ" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="functions as first class - as properties of objects" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/ZadxOZ/">functions as first class - as properties of objects</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    So now we can see why functions as 'first class citizens' in the world of Javascript.  We are almost able to treat them as a data type, which comes in handy
+                    all the time when passing callback functions... speaking of callback functions:
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-primary">Callback Functions</h3>
+                    The fact that Javascript basically treats functions as data types, allows Javascript to use callbacks.  This pattern is extremely popular due to the asynchronous
+                    nature of Javascript (which we will go over shortly), and is something to utilize if you are not already.  The basic idea is that you will pass a function 
+                    to another function, but the function that was passed in will not execute until the original function finishes.  Here is an example:
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p data-height="515" data-theme-id="0" data-slug-hash="vWqRWJ" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="using callbacks" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/vWqRWJ/">using callbacks</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    This is a classic example of doing something with a callback.  We start execution by calling <pre class="inline-pre">longRunningFn</pre> and passing it the
+                    <pre class="inline-pre">notify</pre> function and the string <pre class="inline-pre">&lt;br&gt;Process is done!&lt;br&gt;</pre>, these are the callback function
+                    and its parameters that we are going to execute in the <pre class="inline-pre">longRunningFn</pre> function when it completes (in this case instead of an HTTP call
+                    we will do a 3 second timer).  In the mean time, we see our Javascript does not wait for the timer to complete before executing the next line of code, the
+                    <pre class="inline-pre">doOtherStuff</pre> function.  So how will we ever know when the original <pre class="inline-pre">longRunningFn</pre> function completes?
+                    Thats where callback functions come in to save the day, if it wasn't for the callback function in <pre class="inline-pre">longRunningFn</pre>, we would never
+                    know if that function completed or not.
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-primary">jQuery AJAX</h3>
+                    Javascript's ability to make HTTP calls via AJAX is extremely useful and is probably the primary reason it has become so popular.  But, because they are HTTP
+                    requests going to a server, we run into the problem of AJAX calls taking a few milliseconds, maybe even a few seconds.  Here is a live example:
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Bad Async</h4>
+                    <p data-height="314" data-theme-id="0" data-slug-hash="MOdqzE" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="bad jquery async example" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/MOdqzE/">bad jquery async example</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    This example has a button that when clicked, will check to see if we have access or not, and enable or disable the button based on the response.  We set the
+                    <pre class="inline-pre">hasAccess</pre> variable to false, then check if we have access.  We are going to a random API that returns some data, and we are saying
+                    that as long as some data is returned, access is allowed.  This API will 100% of the time return data, so in theory my <pre class="inline-pre">hasAccess</pre>
+                    variable will become true, and the button will never be disabled.
+                    <br><br>
+                    As you can see, that did not happen.  If we open the console and take a look, you can see the <pre class="inline-pre">checkAccess</pre> function fires right away,
+                    however the conditional <pre class="inline-pre">if (hasAccess)</pre> will execute before our <pre class="inline-pre">checkAccess</pre> function has a chance to
+                    complete.  jQuery's <pre class="inline-pre">ajax</pre> function has you covered here, but there is a few ways to do handle this.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Good Async</h4>
+                    <p data-height="265" data-theme-id="0" data-slug-hash="vWwVjK" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="better jquery async" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/vWwVjK/">better jquery async</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Here we are utilizing the jQuery <pre class="inline-pre">ajax</pre> function to help us with our asynch problems.  The property <pre class="inline-pre">success</pre>
+                    will execute (if it has been assigned a function) upon a successful response from the server.  So, we caa just do our disabling logic in there right?  Yes and no.
+                    It solves the problem, but not in a very maintainable way as far as the code is concerned.  What if the logic that needs to be done to enable/disable the button
+                    becomes much more complex?  What if that <pre class="inline-pre">success</pre> function itself needs to execute an AJAA call?  Our code is going to look really
+                    bad, and our function that makes the AJAX call will not be reusable since its result has specific logic coded into it.  
+                    <br>
+                    <br>
+                    We need to take the logic out of the AJAX call <pre class="inline-pre">success</pre> function, but where can it go?  And how can we make this AJAX call more re-usable?
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Best Async</h4>
+                    <p data-height="265" data-theme-id="0" data-slug-hash="JOqmxo" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="promise async example" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/JOqmxo/">promise async example</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    jQuery <pre class="inline-pre">ajax</pre> will return a Promise interface, referred to sometimes as a deferred object.  We will talk more about deferred objects
+                    and Promise's in a more advanced tutorial, just know these are special types of objects.  Because jQuery <pre class="inline-pre">ajax</pre> returns an object,
+                    we can assign it to a variable.  The jQuery <pre class="inline-pre">ajax</pre> deferred object has a method called <pre class="inline-pre">.then</pre> that
+                    will not execute until the deferred object has completed its task.  We can utilize <pre class="inline-pre">.then</pre> as well as the fact that we can assign
+                    our <pre class="inline-pre">ajax</pre> function to a variable to make our code simple and clean.  The function that makes the AJAX call is re-usable now, since
+                    it simply returns as a deferred object with the HTTP response in it, and we have kept the logic we need to run on the request data seperate.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-primary">Object Inheritance</h3>
+                    Javascript uses objects for everything, there is no question.  And normal, plain Javascript objects are extremely simple, there is really nothing to them.
+                    Javascript however does have a bit of an unorthodox way of doing object inheritance, let's take a quick look:
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Person > Developer > DevManager</h4>
+                    <p data-height="500" data-theme-id="0" data-slug-hash="Kyjeyy" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="inheritance" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/Kyjeyy/">inheritance</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    This is a simple example of object inheritance in Javascript.  Javascript objects can inherit from one another, and can almost be treated as classes.  Javascript
+                    refers to this as the <pre class="inline-pre">prototype chain</pre> or <pre class="inline-pre">prototypical inheritance</pre>.  As objects inherit each other,
+                    each of their new functionlties is added to the <pre class="inline-pre">prototype chain</pre>.
+                    <br><br>
+                    Our example shows the objects being defined using a constructor <pre class="inline-pre">function Person (name, gender, age) {</pre> and then assigning
+                    all of the passed in values to properties I am declaring of the object.  Using this constructor is part of what makes this object a 'prototype' and not
+                    just any other object or function.
+                    <br><br>
+                    If I want to later assign properties to the object prototype, I can simply add them but doing <pre class="inline-pre">Object.prototype.property = value;</pre>
+                    such as in <pre class="inline-pre">Developer.prototype.typeCode = function () { }</pre>
+                    <br>
+                    <br>
+                    The <pre class="inline-pre">call</pre> function that is run on the parent object in the child object's constructor is essentially like calling
+                    the superclass/parentclass's constructor in normal class based languages.
+                    <br><br>
+                    With so many Javascript frameworks coming out now, there is not a high probability that you will be doing a lot of object/prototype based inheritance yourself,
+                    most Javascript frameworks handle all of this for you and just allow you to declare classes, but this is what is going on under the hood.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Random Object Pitfall</h4>
+                    Objects do not have an order, they are not indexed in any particular manner, and there is no gaurentee that they will stay in order.  Objects are more like
+                    collections since they have no real order, and you should never count on the order of and object, use an array or an array of objects instead.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Out of Order</h4>
+                    <p data-height="230" data-theme-id="0" data-slug-hash="XzLEEb" data-default-tab="js" data-user="mikedemo" data-embed-version="2" data-pen-title="order not gaurenteed" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/XzLEEb/">order not gaurenteed</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">In Order</h4>
+                    Using an array of objects, we can keep our collection in order.
+                    <p data-height="230" data-theme-id="0" data-slug-hash="oorqQw" data-default-tab="js" data-user="mikedemo" data-embed-version="2" data-pen-title="use array of objects instead for order" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/oorqQw/">use array of objects instead for order</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-primary">Shorthand</h3>
+                    Before we go let's take a quick look at some cool shorthand tricks, as well as the loosness of Javascript types so we can see how these might help us
+                    write less code.  Remember, in Javascript, you are on the clients machine so you are limited by their capabilities.  Less code is generally better, 
+                    and can make a difference over hundreds of thousands of lines.  Let's take a look at the double not !!.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">!! Not Not</h4>
+                    Using 2 'not' operators in a row is a good way to convert things that should be objects into boolean values.  In the example below, we are checking to see if the
+                    browser is IE, and if it supports geolocation.  If one of these is true, it will return an object, otherwise it will return null.  Rather than add in logic
+                    to check if the variables are objects or null, we can apply the double not to get the boolean equivalent; if the variable is an object, 
+                    it will be true, if it is null, it will be false,
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Ternary</h4>
+                    Because of the way we assign properties to Javascript objects, often times we can use ternary conditionals to change properties.  Take a look at the code below:
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h5 class="text-primary">Too much code</h5>
+                    <p data-height="265" data-theme-id="0" data-slug-hash="KyjRgp" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="ternary and shorthand bad example" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/KyjRgp/">ternary and shorthand bad example</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h5 class="text-primary">A lot less code for the same result</h5>
+                    <p data-height="313" data-theme-id="0" data-slug-hash="oordWq" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="ternary and shorthand good" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/oordWq/">ternary and shorthand good</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Truthy and Falsy</h4>
+                    I will leave you with the code below to look at.  This is showing what evaluates to what in Javascript, is the point I am trying to convey is how loose
+                    the types are.  What you should take away from this is not that Javascript types are weird because they are very lose when using the '==' but rather think
+                    about how this can apply to cuttind down on logic and conditionals.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p data-height="265" data-theme-id="0" data-slug-hash="oordGd" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="truthy and falsy" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/oordGd/">truthy and falsy</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <br><br><br>
+
+    <!-- *********** END CONTENT *********** -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
+<script>
+    var md = new Remarkable('full');
+</script>
+</body>
+</html>
