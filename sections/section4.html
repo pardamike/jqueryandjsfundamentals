@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="jQuery and Javascript Fundamentals">
+    <meta name="author" content="Mike Parda">
+
+    <title>jQuery and Javascript Fundamentals</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/flatly.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.4/gist-embed.min.js"></script>
+    <script src="https://use.fontawesome.com/b430732d7c.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sections
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="section1.html">Section 1: DOM, Elements, Basic Selection</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="section2.html">Section 2: Advanced Selection, Events, Listeners, Input</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="section3.html">Section 3: Functions, Objects, Shorthard and Async</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="section4.html">Section 4: Implementing jQuery Part 1 of 2</a>
+                        <div class="dropdown-divider"></div>
+                        <span class="dropdown-item">More stuff coming!</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- *********** CONTENT *********** -->
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 card">
+                    <div class="card-body">
+                        <h2 class="text-center text-primary"><b>Section 4: </b>Implement jQuery Part 1 of 2</h2>
+                        <p class="text-muted"><b>Overview: </b>Today we will do nothing but write some jQuery to make a small feedback form for a website.
+                        Thie code we are about to walk through <b>can be significantly improved</b>, so keep that in mind.  Overall though, we are going to get
+                        the job done with some decent looking code, and next week we will turn our code we make today into a full blown plugin that
+                        anyone can use.  The entire code for this section is in jQuery, so that when we refactor next week, we can change alot of jQuery into plain old Javascript.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-primary">Our Assignment</h3>
+                    Ok so we work on an application, and the product owner wants some kind of a feedback form for a page on the site.  They want it to be very basic,
+                    the only real requirement are that it have 1 set of radio buttons for the "reason", a text area for comments, and that the options in the group 
+                    me dynamic and pulled from the database.  They client has an admin panel and can add, edit, and delete options from a table in the database.  
+                    Should be pretty easy.
+                    <br><br>
+                    <a href="feedback.html" target="_blank" class="text-primary">Live example of what we want</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-primary">Into the Code</h3>
+                    <p class="text-muted">Let's walk through the code that powers this little dialog and see what it is doing.</p>
+                    <br>
+                    <h4 class="text-primary">Our HTML is going to be very basic:</h4>
+                    <br>
+                    <code data-gist-id="71adec5f96a43376247506ed11a62cb1"></code>
+                    <br>
+                    <h4 class="text-primary">And now for the jQuery::</h4>
+                    <br>
+                    <code data-gist-id="fa0416d7862830a1e09141229029f386"></code>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-primary">So What is Wrong With This Code?</h3>
+                    The code is not necessarily wrong... it executes and does what it is supposed to just fine.  The code itself
+                    is not bad, but here is 3 big things we did not do so well on:
+                    <br><br>
+                    <ul class="list-group">
+                        <li class="list-group-item"><b>Modal comes from the server side</b> - We are depending on the server to give us a very specific modal.  What if I want to use this on
+                        another project with a different server?</li>
+                        <li class="list-group-item"><b>Titles and names are not configurable</b> - We were off to a good start with the <pre class="inline-pre">settings.title</pre>,
+                        but we kind of fell off after that.  If we want to re-use this, we may not want all the titles to always be the same</li>
+                        <li class="list-group-item"><b>Not HTML agnostic</b> - For our jQuery to work, we need to have very specifically named elements in the DOM, regardless of if
+                        the HTML came from the server side or not, we have no wiggle room with element selectors, everything must match exactly</li>
+                        <li class="list-group-item"><b>A lot of jQuery abuse</b> - Do we really need to use the <pre class="inline-pre">$</pre> that much?  Or can we do our browser
+                        a favor and just use plain old JS instead sometimes?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-primary">Next Week...</h3>
+                    Next week we will refactor this code to be reuable, as lightweight as possible, and turn our feedback form into a real deal plugin that can be used
+                    on any project that has Bootstrap and jQuery.  If we wanted to go that far, we could get rid of our jQuery and Bootstrap dependencies as well,
+                    however then our plugin is more than likely going to require a CSS file with it (if not Bootstrap) and this will be a lot more work.  Take a look at the code
+                    we did today, and think about what we could have done better.
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br>
+    <br><br>
+
+    <!-- *********** END CONTENT *********** -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
+<script>
+    var md = new Remarkable('full');
+</script>
+</body>
+</html>

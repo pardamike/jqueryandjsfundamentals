@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/b430732d7c.js"></script>
+  </head>
+  <body>
+    
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <br>
+            <button id="showFeedbackForm" class="btn btn-success">Give Feedback</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Modal is loaded in from server via a partial view -->
+    <div class="modal fade" id="feedbackModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="feedbackModalTitle"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="notificationArea" style="display:none;"></div>
+            <div id="feedbackModalLisWrapper"></div>
+            <br>
+            <h5>Comments or suggestions?</h5>
+            <div class="form-group">
+              <textarea rows="1" class="form-control" id="feedbackModalComment" placeholder="Optional"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="feedbackModalClose" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" id="feedbackModalSend" class="btn btn-primary">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+              
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="../js/feedback.js"></script>
+  </body>
+  <script>
+    Feedback.run({
+      getOptionsUrl: 'https://some.api/getOptions', // values are rendered from server
+      sendFeedbackUrl: 'https://some.api/postData',
+      userId: 1234,
+      optionsId: 5,
+      title: 'Weather Feedback'
+    });
+  </script>
+</html>
