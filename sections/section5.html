@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111273953-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-111273953-1');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="jQuery and Javascript Fundamentals">
+    <meta name="author" content="Mike Parda">
+
+    <title>jQuery and Javascript Fundamentals</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/flatly.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.4/gist-embed.min.js"></script>
+    <script src="https://use.fontawesome.com/b430732d7c.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sections
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="section1.html">Section 1: DOM, Elements, Basic Selection</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="section2.html">Section 2: Advanced Selection, Events, Listeners, Input</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="section3.html">Section 3: Functions, Objects, Shorthard and Async</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="section4.html">Section 4: Implementing jQuery Part 1 of 2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="section5.html">Section 5: Implementing jQuery Part 2 of 2</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- *********** CONTENT *********** -->
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col card">
+                    <div class="card-body">
+                        <h2 class="text-center text-primary"><b>Section 5: </b>Implement jQuery Part 2 of 2</h2>
+                        <p class="text-muted"><b>Overview: </b>Today we will take our feedback jQuery and turn it into a more re-usable plugin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-primary">Our Problem</h3>
+                    If you remember from the last section, we made a pretty handy little feedback dialog with jQuery.  It did the job for what we needed it to, however,
+                    we may find ourselves wanting to re-use this on another project.  We will have to do a lot of copy/pasting, and then a probably some code changes.
+                    It would be nice if we could just include our JS files, call a method or two, and be done with it... after all we have written this code already right?
+                    <br><br>
+                    So let's address the problems:
+                    <br><br>
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="text-primary">Problem</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item">HTML for the modal is on the server</li>
+                                <li class="list-group-item">Text is not fully configurable, no styling options either</li>
+                                <li class="list-group-item">Requires specific HTML attributes (ID's must be exact)</li>
+                                <li class="list-group-item">A lot of <pre class="inline-pre">$</pre> $ references (not the good kind)</li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5 class="text-primary">Solution</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item">Put the modal HTML in the feedback object</li>
+                                <li class="list-group-item">Pass in more settings</li>
+                                <li class="list-group-item">Allow attributes and selectors to be passed in.... but have defaults</li>
+                                <li class="list-group-item">Use plain JS whenever we can</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            So the solution is to make our code into a plugin that we can re-use all over, very easily.  No problem, here is a very generic way to make
+                            a plugin:
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-primary">Re-organize our code</h3>
+                    So we have decided to make our feedback jQuery into a plugin that we can re-use all over.  But we have the above noted issues to overcome.  A lot of these
+                    problems can be solved by allowing the user to pass in more settings and configurationw to the object.  But what if we don't want to force the user to pass in
+                    these settings?  We need a way to have both, and <pre class="inline-pre">$.extend()</pre> has the answer for us.
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col">
+                    <p data-height="600" data-theme-id="0" data-slug-hash="dJMLLL" data-default-tab="js" data-user="mikedemo" data-embed-version="2" data-pen-title="dJMLLL" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/dJMLLL/">dJMLLL</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    So this is a bit confusing, but walking through the comments, it is not really all that much.  All we are doing is: 
+                    <ol>
+                        <li>Adding a function to jQuery that will return our object</li>
+                        <li>Create our object and all of its properties</li>
+                        <li>Merge the object and its properties with an object we pass in as configuration</li>
+                        <li>Return the new object that is both our original plus the configuration</li>
+                    </ol>
+                    <br><br>
+                    The result is that we can pass in a configuration object to override any of the object's "default" properties.  So now we have the ability to
+                    use default settings, or rely on ones passed in, which is a huge step.  So let's port our code over into this new format:
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <p data-height="500" data-theme-id="0" data-slug-hash="RxamdK" data-default-tab="js" data-user="mikedemo" data-embed-version="2" data-pen-title="RxamdK" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/RxamdK/">RxamdK</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-primary">Pass in all the things!</h3>
+                    So now that we have an object that is a bit more flexible in allowing us to pass in parameters or it will use its defaults, lets
+                    really expand on what we are passing in to address some of thes problems.
+                    <br><br>
+                    <h4 class="text-primary">Selectors</h4>
+                    To separate our plugin's code from using such specific selectors (EX: <pre class="inline-pre">$('#showFeedbackForm')</pre> ), lets allow those the
+                    selectors to be passed in, so that our code only ever references the property that they were assigned to.  Here is an example of how we can do that,
+                    and then we can apply the same principle to our plugin:
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <p data-height="343" data-theme-id="0" data-slug-hash="YYqoJe" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="YYqoJe" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/YYqoJe/">YYqoJe</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Styles, titles, and text</h4>
+                    Just like we passed in the ID's to be used for selecting the elements, we can pass in things like tites, names, pretty much any text that we might
+                    want to have configurable, as well as CSS classes or styles we want to add to elements.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Inject HTML, or don't</h4>
+                    A problem mentioned earlier was the modal HTML having to be copied and pasted over into the HTML anytime you want to use this plugin.  Rather than
+                    assume the HTML will be there for us, our plugin should probably just inject the HTML itself by default.  Since we can allow a setting to be passed in to tell us
+                    whether or not to inject the modal HTML or not, we are not forcing plugin users to use our modal if they don't want to, just providing a default that can be used.
+                    <br><br>
+                    Using a multi-line string, we can create the HTML for a modal and then append to to the body, something like this:
+                    <br><br>
+                    <p data-height="275" data-theme-id="0" data-slug-hash="bapJxp" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="inject modal HTML into body" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/bapJxp/">inject modal HTML into body</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Minimize jQuery usage</h4>
+                    Anytime we reference a <pre class="inline-pre">$</pre> in our code, we are using jQuery to do something.  Many times, this is not necessary as we have seen,
+                    and the plain old JS way is roughly as much code.  To write the most efficient client side code we can, we need to limit (or ultimatly not use) jQuery references.
+                    A browser will execute plain JS significantly faster than it will execute jQuery, so we want to take advantage of that when we can.  The goal is not to make
+                    your life hard, we will certainly use jQuery, but to save on performance when we can.  Go for the low hanging fruit to start, such as instead of
+                    <pre class="inline-pre">$(this).val()</pre> just do <pre class="inline-pre">this.value</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Refactor Result</h4>
+                    So our refactor result is below.  It looks significantly differnt at first, but knowing how we constructed this, you know it is really the same
+                    code we once had, just refactored a bit to make it more generic and allow settings to allow us to re-use this code all over.
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-primary">Our new HTML</h4>
+                    <br>
+                    <code data-gist-id="20c0fe073bbad2d8306112d78afc111c"></code>
+                    <br>
+                    <h4 class="text-primary">Our new jQuery:</h4>
+                    <br>
+                    <code data-gist-id="d0b2bec8b3da6576e93696f3e180dd81"></code>
+                    <br>
+                    <h4 class="text-primary">And a working demo:</h4>
+                    <br>
+                    <p data-height="206" data-theme-id="0" data-slug-hash="VyjwzW" data-default-tab="js,result" data-user="mikedemo" data-embed-version="2" data-pen-title="VyjwzW" class="codepen">See the Pen <a href="https://codepen.io/mikedemo/pen/VyjwzW/">VyjwzW</a> by Mike P (<a href="https://codepen.io/mikedemo">@mikedemo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- *********** END CONTENT *********** -->
+
+    <br><br>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
+<script>
+    var md = new Remarkable('full');
+</script>
+</body>
+</html>
